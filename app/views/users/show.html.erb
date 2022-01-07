@@ -1,2 +1,6 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<h2>User info</h2>
+<%= render 'info', user: @user %>
+<h2>New book</h2>
+<%= render 'books/form', book: @book %>
+<h2>Books</h2>
+<%= render 'books/index',books: @books %>
