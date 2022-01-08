@@ -1,0 +1,7 @@
+<% form_with model :book,local :turue do |f| %>
+<% f.label :title %>
+<% f.text_fild :title %>
+<% f.label :opinion %>
+<% f.text_area :body%>
+<%= f.submit class: 'btn btn-success' %>
+<% end %>
