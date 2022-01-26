@@ -1,5 +1,4 @@
-class FavolitesController < ApplicationController
-      before_action :authenticate_user!
+class FavoritesController < ApplicationController
 
   def create
     @book = Book.find(params[:book_id])
@@ -9,7 +8,7 @@ class FavolitesController < ApplicationController
 
   def destroy
     @book = Book.find(params[:book_id])
-    favorite = @book.favorites.find_by(user_id: current_user.id)
+    favorite = @book.favorites.find_by(book_id: @book.id)
     favorite.destroy
   end
 end

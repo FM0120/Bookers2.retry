@@ -6,7 +6,12 @@ class User < ApplicationRecord
          
   has_many :books, dependent: :destroy
   
-  has_many :_comments, dependent: :destroy
+  has_many :favorites, dependent: :destroy
+  
+  has_many :relationships, class_name: "Relationship", foreign_key: "follower_id", dependent: :destroy
+  has_many :followings, through: :relationships, source: :followed
+  
+  has_many :book_comments, dependent: :destroy
   
   def follow(user_id)
     relationships.create(followed_id: user_id)
