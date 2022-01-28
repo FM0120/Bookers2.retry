@@ -21,17 +21,6 @@
           <%= render 'favorites/favorite', book: book %>
           </div>
         </td>
-        <td>コメント件数：<%= book.book_comments.count %></td>
-        <td>フォロー数: <%= user.followings.count %></td>
-        <td>フォロワー数: <%= user.followers.count %></td>
-        <td><%= link_to 'Show', user_path(user), class: "user_#{user.id}" %></td>
-        <% unless current_user == user %>
-         <% if current_user.following?(user) %>
-           <td><%= link_to "フォロー外す","/users/#{user.id}/relationships/#{user.id}", method: :delete %></td>
-         <% else %>
-           <td><%= link_to "フォロー", user_relationships_path(user.id), method: :POST %></td>
-         <% end %>
-        <% end %>
       </tr>
     <% end %>
   </tbody>
